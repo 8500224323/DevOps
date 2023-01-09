@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('git checkout') {
+            
+            steps {
+                sh 'cd /opt'
+               checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '368cdf15-7af4-49fb-9aff-e38089141a21', url: 'https://github.com/8500224323/DevOps.git']]])
+                
+            }
+        }
+       
+        
+        
+    }
+}
